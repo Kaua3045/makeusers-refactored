@@ -2,16 +2,20 @@ const UserRepository = require("../../repositories/users/userRepository")
 const HashRepository = require('../../repositories/hash/hashRepository')
 const UserModel = require("../../models/user")
 
+const { validateAllUserData } = require('../../validators/validation')
+const UserAlreadyExistsError = require('../../errors/users/userAlreadyExistsError')
+
 module.exports = {
   async createUser(user) {
-    // TODO validate users data
+    validateAllUserData(user.name, user.email, user.password)
+
     const userRepository = new UserRepository()
     const hashRepository = new HashRepository()
 
     const userExists = await userRepository.findByEmail(user.email)
 
     if (userExists) {
-      throw new Error('User already exists')
+      throw new UserAlreadyExistsError()
     }
 
     const encryptedPassword = await hashRepository.generateHash(user.password, 8)

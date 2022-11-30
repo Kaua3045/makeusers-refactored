@@ -1,4 +1,4 @@
-const { createUser } = require('./CreateUserService')
+const { createUser } = require('./createUserService')
 
 module.exports = {
   createUser
