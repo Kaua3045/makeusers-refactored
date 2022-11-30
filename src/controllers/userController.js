@@ -1,4 +1,4 @@
-const { createUser, getUserById } = require('../services/users')
+const { createUser, getUserById, getAllUsers } = require('../services/users')
 const UserModel = require("../models/user")
 
 module.exports = {
@@ -16,6 +16,12 @@ module.exports = {
     const { id } = req.params
     // Substituir pelo req.user.id posteriormente (pega o id do user logado)
     const result = await getUserById(id)
+
+    return res.json(result)
+  },
+
+  async getAllUsersController(req, res) {
+    const result = await getAllUsers()
 
     return res.json(result)
   }
