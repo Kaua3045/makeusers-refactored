@@ -37,9 +37,9 @@ module.exports = {
 
   async updateProfileController(req, res) {
     const { id } = req.params // depois pega do req.user.id
-    const dataToUpdate = req.body
+    const { name, email } = req.body
 
-    await updateProfile(id, dataToUpdate)
+    await updateProfile(id, name, email)
 
     return res.status(204).end()
   }
