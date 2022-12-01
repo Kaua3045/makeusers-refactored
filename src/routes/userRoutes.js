@@ -5,13 +5,15 @@ const {
   createUserController, 
   getAllUsersController, 
   getUserByIdController, 
-  resetPasswordController 
+  resetPasswordController, 
+  updateProfileController
 } = require('../controllers/userController')
 
 userRouter.get('/all', getAllUsersController)
 userRouter.get('/:id', getUserByIdController) // remove :id in future get id by req
 
 userRouter.post('/create', createUserController)
+userRouter.patch('/update/:id', updateProfileController)
 userRouter.patch('/resetpassword/:id', resetPasswordController)
 
 module.exports = userRouter
