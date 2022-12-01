@@ -1,4 +1,4 @@
-const { createUser, getUserById, getAllUsers } = require('../services/users')
+const { createUser, getUserById, getAllUsers, resetPassword } = require('../services/users')
 const UserModel = require("../models/user")
 
 module.exports = {
@@ -24,5 +24,14 @@ module.exports = {
     const result = await getAllUsers()
 
     return res.json(result)
+  },
+
+  async resetPasswordController(req, res) {
+    const { id } = req.params
+    const { newPassword } = req.body
+
+    await resetPassword(id, newPassword)
+
+    return res.status(200).end()
   }
 }
