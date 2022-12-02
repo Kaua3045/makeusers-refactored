@@ -3,12 +3,14 @@ module.exports = {
     const nameVerify = err.name
 
     if (
-      nameVerify.includes('user')
+      nameVerify.includes('user') ||
+      nameVerify.includes('image')
       ) {
       return res.status(err.statusCode).json({
         message: err.message
       })
     }
+
 
     if (err.code === '22P02' && err.message.includes('uuid')) {
       return res.status(400).json({
