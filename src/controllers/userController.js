@@ -1,4 +1,4 @@
-const { createUser, getUserById, getAllUsers, resetPassword, updateProfile, updateAvatar } = require('../services/users')
+const { createUser, getUserById, getAllUsers, resetPassword, updateProfile, updateAvatar, deleteUser } = require('../services/users')
 const UserModel = require("../models/user")
 
 module.exports = {
@@ -47,5 +47,12 @@ module.exports = {
     const user = await updateAvatar(id, fileName)
 
     return res.json(user)
+  },
+
+  async deleteUserController(req, res) {
+    const { id } = req.params
+    await deleteUser(id)
+
+    return res.status(204).end()
   }
 }

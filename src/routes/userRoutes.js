@@ -7,7 +7,8 @@ const {
   getUserByIdController, 
   resetPasswordController, 
   updateProfileController,
-  updateAvatarController
+  updateAvatarController,
+  deleteUserController
 } = require('../controllers/userController')
 
 const upload = require('../middlewares/uploadMiddleware')
@@ -17,6 +18,8 @@ userRouter.get('/all', ensureAuthenticated, getAllUsersController)
 userRouter.get('/', ensureAuthenticated, getUserByIdController)
 
 userRouter.post('/create', createUserController)
+userRouter.delete('/delete/:id', ensureAuthenticated, deleteUserController)
+
 userRouter.patch('/update', ensureAuthenticated, updateProfileController)
 userRouter.patch('/resetpassword/:id', resetPasswordController)
 userRouter.patch('/avatar', ensureAuthenticated, upload.single('avatar'), updateAvatarController)

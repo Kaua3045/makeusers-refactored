@@ -4,6 +4,7 @@ const { getAllUsers } = require('./getAllUsersService')
 const { resetPassword } = require('./resetPasswordService')
 const { updateProfile } = require('./updateProfileUserService')
 const { updateAvatar } = require('./updateAvatarUserService')
+const { deleteUser } = require('./deleteUserService')
 
 module.exports = {
   createUser,
@@ -11,5 +12,6 @@ module.exports = {
   getAllUsers,
   resetPassword,
   updateProfile,
-  updateAvatar
+  updateAvatar,
+  deleteUser
 }
