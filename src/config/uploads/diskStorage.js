@@ -1,7 +1,7 @@
 const multer = require("multer")
 const { v4: uuid } = require('uuid')
 
-const { tmpFolder } = require('../../config/uploadsConfig')
+const { tmpFolder } = require('../uploadsConfig')
 
 module.exports = diskStorage = multer.diskStorage({
   destination: tmpFolder,

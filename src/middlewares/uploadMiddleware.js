@@ -1,7 +1,7 @@
 const multer = require('multer')
 
 const { envConfig } = require('../config/env')
-const diskStorage = require('../database/imageStorages/diskStorage')
+const diskStorage = require('../config/uploads/diskStorage')
 const checkFileType = require('../utils/fileTypeCheck')
 
 const upload = multer({
