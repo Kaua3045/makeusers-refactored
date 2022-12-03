@@ -1,5 +1,4 @@
 const express = require('express')
-const { avatarsFolder } = require('../config/uploadsConfig')
 const userRouter = express.Router()
 
 const { 
