@@ -13,9 +13,7 @@ module.exports = {
   },
 
   async getUserByIdController(req, res) {
-    const { id } = req.params
-    // Substituir pelo req.user.id posteriormente (pega o id do user logado)
-    const result = await getUserById(id)
+    const result = await getUserById(req.user.id)
 
     return res.json(result)
   },
@@ -36,10 +34,9 @@ module.exports = {
   },
 
   async updateProfileController(req, res) {
-    const { id } = req.params // depois pega do req.user.id
     const { name, email } = req.body
 
-    await updateProfile(id, name, email)
+    await updateProfile(req.user.id, name, email)
 
     return res.status(204).end()
   },
