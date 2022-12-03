@@ -26,7 +26,7 @@ Project to create a user (admin or normal) and create products, adding images to
 
 ```bash
 # Cloning the repository and accessing the directory
-git clone https://github.com/Kaua3045/makeusers-refactored.git && cd makeUsersV2
+git clone https://github.com/Kaua3045/makeusers-refactored.git && cd makeusers-refactored
 
 # Installing the dependencies
 npm i
