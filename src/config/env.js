@@ -14,6 +14,7 @@ module.exports = {
     },
     multerStorage: {
       storageType: process.env.MULTER_STORAGE
-    }
+    },
+    jwtSecretKey: process.env.JWT_SECRET_KEY
   }
 }
