@@ -24,7 +24,7 @@ module.exports = {
 
     delete userExists.password
 
-    const token = await authRepository.generateToken({ id: userExists.id })
+    const token = authRepository.generateToken({ id: userExists.id })
 
     return { userExists, token}
   }
