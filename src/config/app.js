@@ -15,6 +15,7 @@ createTables()
 server.use(cors())
 server.use(express.json())
 server.use('/api', router)
+server.use('/files', express.static('tmp/avatars'))
 server.use(errorsMiddleware)
 
 module.exports = server
