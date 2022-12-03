@@ -4,7 +4,8 @@ module.exports = {
 
     if (
       nameVerify.includes('user') ||
-      nameVerify.includes('image')
+      nameVerify.includes('image') ||
+      nameVerify.includes('common')
       ) {
       return res.status(err.statusCode).json({
         message: err.message
