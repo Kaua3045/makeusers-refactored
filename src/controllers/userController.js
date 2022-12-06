@@ -42,9 +42,8 @@ module.exports = {
   },
 
   async updateAvatarController(req, res) {
-    const { id } = req.params
     const fileName = req.file.filename
-    const user = await updateAvatar(id, fileName)
+    const user = await updateAvatar(req.user.id, fileName)
 
     return res.json(user)
   },
