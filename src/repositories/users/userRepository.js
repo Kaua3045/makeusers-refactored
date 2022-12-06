@@ -53,8 +53,12 @@ class UserRepository {
   }
 
   async update(columnsToUpdate, whereIdentify, values) {
-    await client.query(`
+    const valueUpdatedDatabase = await client.query(`
     UPDATE users SET ${columnsToUpdate} WHERE ${whereIdentify}`, values)
+    
+    const valueUpdated = valueUpdatedDatabase.rows[0]
+
+    return valueUpdated
   }
 
   async remove(id) {

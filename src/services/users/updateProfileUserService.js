@@ -29,10 +29,12 @@ module.exports = {
       email = userExists.email
     }
 
-    await userRepository.update('name = $1, email = $2', 'id = $3', [
+    const userUpdated = await userRepository.update('name = $1, email = $2', 'id = $3 RETURNING id, name, email, avatar', [
       name,
       email,
       id
     ])
+
+    return userUpdated
   }
 }

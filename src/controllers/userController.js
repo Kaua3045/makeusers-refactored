@@ -36,9 +36,9 @@ module.exports = {
   async updateProfileController(req, res) {
     const { name, email } = req.body
 
-    await updateProfile(req.user.id, name, email)
+    const response = await updateProfile(req.user.id, name, email)
 
-    return res.status(204).end()
+    return res.json(response)
   },
 
   async updateAvatarController(req, res) {
