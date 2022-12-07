@@ -3,6 +3,7 @@ const { emailIsValid } = require('../../validators/userValidators')
 
 const UserNotExistsError = require('../../errors/users/userNotExistsError')
 const UserEmailAlreadyExistsError = require('../../errors/users/userEmailAlreadyExistsError')
+const UserModel = require('../../models/user')
 
 module.exports = {
   async updateProfile(id, name, email) {
@@ -34,6 +35,10 @@ module.exports = {
       email,
       id
     ])
+
+    if (userUpdated.avatar) {
+      userUpdated.avatar_url = UserModel.parseAvatarNameToUrl(userUpdated.avatar)
+    }
 
     return userUpdated
   }
