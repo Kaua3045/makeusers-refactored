@@ -6,7 +6,8 @@ module.exports = {
       nameVerify.includes('user') ||
       nameVerify.includes('image') ||
       nameVerify.includes('common') ||
-      nameVerify.includes('token')
+      nameVerify.includes('token') ||
+      nameVerify.includes('product')
       ) {
       return res.status(err.statusCode).json({
         message: err.message
