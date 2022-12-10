@@ -7,7 +7,8 @@ module.exports = {
       nameVerify.includes('image') ||
       nameVerify.includes('common') ||
       nameVerify.includes('token') ||
-      nameVerify.includes('product')
+      nameVerify.includes('product') ||
+      nameVerify.includes('admin')
       ) {
       return res.status(err.statusCode).json({
         message: err.message
